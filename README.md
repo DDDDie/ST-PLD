@@ -1,1 +1,3 @@
 # STF-PLD
+This is an official implementation of "Discovering New Intents via Spatio-Temporal Fusion based Pseudo-Label Denoising"
+We will release our code soon ...
