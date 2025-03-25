@@ -1,0 +1,622 @@
+2025-03-24 08:40:52,914 - Discovery - Open Intent Discovery Begin...
+2025-03-24 08:40:52,914 - Discovery - Parameters Initialization...
+2025-03-24 08:40:52,914 - Discovery - ============================== Params ==============================
+2025-03-24 08:40:52,914 - Discovery - type:	open_intent_discovery
+2025-03-24 08:40:52,915 - Discovery - logger_name:	Discovery
+2025-03-24 08:40:52,915 - Discovery - log_dir:	logs
+2025-03-24 08:40:52,915 - Discovery - dataset:	banking
+2025-03-24 08:40:52,915 - Discovery - known_cls_ratio:	0.25
+2025-03-24 08:40:52,915 - Discovery - num_workers:	8
+2025-03-24 08:40:52,915 - Discovery - window_size:	10
+2025-03-24 08:40:52,915 - Discovery - bottom_k_ratio:	0.01
+2025-03-24 08:40:52,915 - Discovery - bottom_k_num:	10
+2025-03-24 08:40:52,915 - Discovery - top_k_ratio:	0.5
+2025-03-24 08:40:52,915 - Discovery - alpha:	0.3
+2025-03-24 08:40:52,915 - Discovery - beta:	0.5
+2025-03-24 08:40:52,915 - Discovery - labeled_ratio:	0.1
+2025-03-24 08:40:52,915 - Discovery - cluster_num_factor:	1.0
+2025-03-24 08:40:52,915 - Discovery - wo_self:	True
+2025-03-24 08:40:52,915 - Discovery - train:	True
+2025-03-24 08:40:52,915 - Discovery - tune:	True
+2025-03-24 08:40:52,915 - Discovery - save_model:	True
+2025-03-24 08:40:52,915 - Discovery - backbone:	bert_STPLD
+2025-03-24 08:40:52,915 - Discovery - config_file_name:	config_STPLD
+2025-03-24 08:40:52,915 - Discovery - seed:	0
+2025-03-24 08:40:52,915 - Discovery - gpu_id:	2
+2025-03-24 08:40:52,915 - Discovery - pipe_results_path:	pipe_results
+2025-03-24 08:40:52,915 - Discovery - data_dir:	/home/huangyiting2023/ST-PLD/data
+2025-03-24 08:40:52,915 - Discovery - output_dir:	../outputs_un_pre/
+2025-03-24 08:40:52,915 - Discovery - model_dir:	models
+2025-03-24 08:40:52,915 - Discovery - result_dir:	results
+2025-03-24 08:40:52,915 - Discovery - results_file_name:	results.csv
+2025-03-24 08:40:52,915 - Discovery - save_results:	True
+2025-03-24 08:40:52,915 - Discovery - logger_file_name:	banking_bert_STPLD_2025-03-24-08-40-52
+2025-03-24 08:40:52,915 - Discovery - task_output_dir:	../outputs_un_pre/open_intent_discovery
+2025-03-24 08:40:52,915 - Discovery - method_output_dir:	../outputs_un_pre/open_intent_discovery/banking_0.25_0.1_1.0_bert_STPLD_0
+2025-03-24 08:40:52,915 - Discovery - model_output_dir:	../outputs_un_pre/open_intent_discovery/banking_0.25_0.1_1.0_bert_STPLD_0/models
+2025-03-24 08:40:52,915 - Discovery - pretrained_bert_model:	/home/huangyiting2023/DeepAligned-Clustering/uncased_L-12_H-768_A-12/
+2025-03-24 08:40:52,915 - Discovery - max_seq_length:	None
+2025-03-24 08:40:52,915 - Discovery - num_pretrain_epochs:	100
+2025-03-24 08:40:52,915 - Discovery - num_train_epochs:	100
+2025-03-24 08:40:52,915 - Discovery - num_labels:	None
+2025-03-24 08:40:52,915 - Discovery - pretrain:	True
+2025-03-24 08:40:52,915 - Discovery - freeze_pretrain_bert_parameters:	True
+2025-03-24 08:40:52,915 - Discovery - freeze_train_bert_parameters:	False
+2025-03-24 08:40:52,915 - Discovery - feat_dim:	768
+2025-03-24 08:40:52,915 - Discovery - warmup_proportion:	0.1
+2025-03-24 08:40:52,915 - Discovery - lr_pre:	5e-05
+2025-03-24 08:40:52,915 - Discovery - lr:	1e-05
+2025-03-24 08:40:52,915 - Discovery - loss_fct:	CrossEntropyLoss
+2025-03-24 08:40:52,916 - Discovery - pretrain_temperature:	0.07
+2025-03-24 08:40:52,916 - Discovery - train_temperature:	0.05
+2025-03-24 08:40:52,916 - Discovery - re_prob:	0.4
+2025-03-24 08:40:52,916 - Discovery - activation:	tanh
+2025-03-24 08:40:52,916 - Discovery - tol:	0.0005
+2025-03-24 08:40:52,916 - Discovery - grad_clip:	1.0
+2025-03-24 08:40:52,916 - Discovery - train_batch_size:	128
+2025-03-24 08:40:52,916 - Discovery - pretrain_batch_size:	128
+2025-03-24 08:40:52,916 - Discovery - eval_batch_size:	64
+2025-03-24 08:40:52,916 - Discovery - test_batch_size:	64
+2025-03-24 08:40:52,916 - Discovery - wait_patient:	10
+2025-03-24 08:40:52,916 - Discovery - ============================== End Params ==============================
+2025-03-24 08:40:52,916 - Discovery - Tuning begins...
+2025-03-24 08:40:52,916 - Discovery - ***** Tuning parameters: *****
+2025-03-24 08:40:52,916 - Discovery - Data and Model Preparation...
+2025-03-24 08:40:52,917 - Discovery - The number of known intents is 19
+2025-03-24 08:40:52,917 - Discovery - Lists of known labels are: ['pending_top_up', 'why_verify_identity', 'top_up_failed', 'supported_cards_and_currencies', 'exchange_via_app', 'declined_card_payment', 'unable_to_verify_identity', 'exchange_rate', 'passcode_forgotten', 'verify_my_identity', 'declined_cash_withdrawal', 'top_up_limits', 'apple_pay_or_google_pay', 'lost_or_stolen_card', 'lost_or_stolen_phone', 'balance_not_updated_after_cheque_or_cash_deposit', 'change_pin', 'getting_virtual_card', 'pin_blocked']
+2025-03-24 08:40:53,047 - Discovery - Number of labeled training samples = 212
+2025-03-24 08:40:53,047 - Discovery - Number of unlabeled training samples = 8791
+2025-03-24 08:40:53,051 - Discovery - Number of evaluation samples = 234
+2025-03-24 08:40:53,058 - Discovery - Number of testing samples = 3080
+2025-03-24 08:41:00,516 - Discovery - Freeze all parameters but the last layer for efficiency
+2025-03-24 08:41:09,345 - Discovery - Pre-training start...
+2025-03-24 08:42:06,417 - Discovery - ***** Epoch: 1: Eval results *****
+2025-03-24 08:42:06,417 - Discovery -   best_score = 0
+2025-03-24 08:42:06,417 - Discovery -   eval_score = 10.68
+2025-03-24 08:42:06,417 - Discovery -   train_loss = 7.232883356619572
+2025-03-24 08:43:07,983 - Discovery - ***** Epoch: 2: Eval results *****
+2025-03-24 08:43:07,983 - Discovery -   best_score = 10.68
+2025-03-24 08:43:07,983 - Discovery -   eval_score = 45.73
+2025-03-24 08:43:07,983 - Discovery -   train_loss = 5.04747488187707
+2025-03-24 08:44:09,921 - Discovery - ***** Epoch: 3: Eval results *****
+2025-03-24 08:44:09,922 - Discovery -   best_score = 45.73
+2025-03-24 08:44:09,922 - Discovery -   eval_score = 62.39
+2025-03-24 08:44:09,922 - Discovery -   train_loss = 4.203122429225756
+2025-03-24 08:45:12,273 - Discovery - ***** Epoch: 4: Eval results *****
+2025-03-24 08:45:12,273 - Discovery -   best_score = 62.39
+2025-03-24 08:45:12,273 - Discovery -   eval_score = 79.49
+2025-03-24 08:45:12,273 - Discovery -   train_loss = 3.167648197948069
+2025-03-24 08:46:14,686 - Discovery - ***** Epoch: 5: Eval results *****
+2025-03-24 08:46:14,687 - Discovery -   best_score = 79.49
+2025-03-24 08:46:14,687 - Discovery -   eval_score = 83.33
+2025-03-24 08:46:14,687 - Discovery -   train_loss = 2.015270305716473
+2025-03-24 08:47:17,099 - Discovery - ***** Epoch: 6: Eval results *****
+2025-03-24 08:47:17,099 - Discovery -   best_score = 83.33
+2025-03-24 08:47:17,099 - Discovery -   eval_score = 84.62
+2025-03-24 08:47:17,099 - Discovery -   train_loss = 1.5818115161812825
+2025-03-24 08:48:19,344 - Discovery - ***** Epoch: 7: Eval results *****
+2025-03-24 08:48:19,344 - Discovery -   best_score = 84.62
+2025-03-24 08:48:19,345 - Discovery -   eval_score = 85.9
+2025-03-24 08:48:19,345 - Discovery -   train_loss = 1.4274966094804846
+2025-03-24 08:49:21,789 - Discovery - ***** Epoch: 8: Eval results *****
+2025-03-24 08:49:21,789 - Discovery -   best_score = 85.9
+2025-03-24 08:49:21,789 - Discovery -   eval_score = 85.47
+2025-03-24 08:49:21,789 - Discovery -   train_loss = 1.36243072108946
+2025-03-24 08:50:24,194 - Discovery - ***** Epoch: 9: Eval results *****
+2025-03-24 08:50:24,194 - Discovery -   best_score = 85.9
+2025-03-24 08:50:24,194 - Discovery -   eval_score = 85.47
+2025-03-24 08:50:24,194 - Discovery -   train_loss = 1.313263381736866
+2025-03-24 08:51:26,852 - Discovery - ***** Epoch: 10: Eval results *****
+2025-03-24 08:51:26,852 - Discovery -   best_score = 85.9
+2025-03-24 08:51:26,852 - Discovery -   eval_score = 85.9
+2025-03-24 08:51:26,853 - Discovery -   train_loss = 1.276279584221218
+2025-03-24 08:52:29,154 - Discovery - ***** Epoch: 11: Eval results *****
+2025-03-24 08:52:29,154 - Discovery -   best_score = 85.9
+2025-03-24 08:52:29,154 - Discovery -   eval_score = 86.75
+2025-03-24 08:52:29,155 - Discovery -   train_loss = 1.2649685144424438
+2025-03-24 08:53:32,130 - Discovery - ***** Epoch: 12: Eval results *****
+2025-03-24 08:53:32,131 - Discovery -   best_score = 86.75
+2025-03-24 08:53:32,131 - Discovery -   eval_score = 87.18
+2025-03-24 08:53:32,131 - Discovery -   train_loss = 1.2317377173382302
+2025-03-24 08:54:34,458 - Discovery - ***** Epoch: 13: Eval results *****
+2025-03-24 08:54:34,458 - Discovery -   best_score = 87.18
+2025-03-24 08:54:34,458 - Discovery -   eval_score = 86.32
+2025-03-24 08:54:34,458 - Discovery -   train_loss = 1.2163418289543926
+2025-03-24 08:55:37,241 - Discovery - ***** Epoch: 14: Eval results *****
+2025-03-24 08:55:37,241 - Discovery -   best_score = 87.18
+2025-03-24 08:55:37,242 - Discovery -   eval_score = 86.32
+2025-03-24 08:55:37,242 - Discovery -   train_loss = 1.2197752715884775
+2025-03-24 08:56:39,510 - Discovery - ***** Epoch: 15: Eval results *****
+2025-03-24 08:56:39,510 - Discovery -   best_score = 87.18
+2025-03-24 08:56:39,510 - Discovery -   eval_score = 85.9
+2025-03-24 08:56:39,510 - Discovery -   train_loss = 1.1918895313705222
+2025-03-24 08:57:41,939 - Discovery - ***** Epoch: 16: Eval results *****
+2025-03-24 08:57:41,940 - Discovery -   best_score = 87.18
+2025-03-24 08:57:41,940 - Discovery -   eval_score = 85.47
+2025-03-24 08:57:41,940 - Discovery -   train_loss = 1.1908176109410715
+2025-03-24 08:58:44,251 - Discovery - ***** Epoch: 17: Eval results *****
+2025-03-24 08:58:44,251 - Discovery -   best_score = 87.18
+2025-03-24 08:58:44,252 - Discovery -   eval_score = 86.32
+2025-03-24 08:58:44,252 - Discovery -   train_loss = 1.1935610987138057
+2025-03-24 08:59:47,009 - Discovery - ***** Epoch: 18: Eval results *****
+2025-03-24 08:59:47,011 - Discovery -   best_score = 87.18
+2025-03-24 08:59:47,011 - Discovery -   eval_score = 85.9
+2025-03-24 08:59:47,011 - Discovery -   train_loss = 1.1859535376230876
+2025-03-24 09:00:49,559 - Discovery - ***** Epoch: 19: Eval results *****
+2025-03-24 09:00:49,560 - Discovery -   best_score = 87.18
+2025-03-24 09:00:49,560 - Discovery -   eval_score = 85.47
+2025-03-24 09:00:49,560 - Discovery -   train_loss = 1.1802991481794827
+2025-03-24 09:01:52,297 - Discovery - ***** Epoch: 20: Eval results *****
+2025-03-24 09:01:52,297 - Discovery -   best_score = 87.18
+2025-03-24 09:01:52,297 - Discovery -   eval_score = 85.47
+2025-03-24 09:01:52,297 - Discovery -   train_loss = 1.1617847275042879
+2025-03-24 09:02:54,901 - Discovery - ***** Epoch: 21: Eval results *****
+2025-03-24 09:02:54,902 - Discovery -   best_score = 87.18
+2025-03-24 09:02:54,902 - Discovery -   eval_score = 85.9
+2025-03-24 09:02:54,902 - Discovery -   train_loss = 1.1710839254268701
+2025-03-24 09:03:54,733 - Discovery - ***** Epoch: 22: Eval results *****
+2025-03-24 09:03:54,734 - Discovery -   best_score = 87.18
+2025-03-24 09:03:54,734 - Discovery -   eval_score = 85.47
+2025-03-24 09:03:54,734 - Discovery -   train_loss = 1.1573200623194377
+2025-03-24 09:03:55,534 - Discovery - Pre-training finished...
+2025-03-24 09:03:58,027 - Discovery - Training Begin...
+2025-03-24 09:04:10,164 - Discovery - Initializing centroids with K-means++...
+2025-03-24 09:05:18,700 - Discovery - K-means++ used 68.54 s
+2025-03-24 09:06:44,370 - Discovery - K-means used 0.88 s
+2025-03-24 09:06:44,414 - Discovery - ***** Epoch: 1 *****
+2025-03-24 09:06:44,415 - Discovery - Training Loss: 9.654540
+2025-03-24 09:06:44,415 - Discovery - Delta Label: 0.179607
+2025-03-24 09:07:03,908 - Discovery - Dataloader Updated! Select_sample Num: 9003
+2025-03-24 09:08:12,725 - Discovery - K-means used 0.64 s
+2025-03-24 09:09:55,381 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:09:55,382 - Discovery - delta_label: 1.000000
+2025-03-24 09:09:55,388 - Discovery - ***** Epoch: 2 *****
+2025-03-24 09:09:55,388 - Discovery - Training Loss: 8.630920
+2025-03-24 09:09:55,388 - Discovery - Delta Label: 0.147617
+2025-03-24 09:10:04,287 - Discovery - Dataloader Updated! Select_sample Num: 4000
+2025-03-24 09:10:39,759 - Discovery - K-means used 0.99 s
+2025-03-24 09:12:23,916 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:12:23,916 - Discovery - delta_label: 1.000000
+2025-03-24 09:12:23,934 - Discovery - ***** Epoch: 3 *****
+2025-03-24 09:12:23,934 - Discovery - Training Loss: 7.992450
+2025-03-24 09:12:23,934 - Discovery - Delta Label: 0.081306
+2025-03-24 09:12:33,276 - Discovery - Dataloader Updated! Select_sample Num: 4385
+2025-03-24 09:13:10,974 - Discovery - K-means used 0.96 s
+2025-03-24 09:14:53,672 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:14:53,673 - Discovery - delta_label: 1.000000
+2025-03-24 09:14:53,679 - Discovery - ***** Epoch: 4 *****
+2025-03-24 09:14:53,679 - Discovery - Training Loss: 7.704990
+2025-03-24 09:14:53,679 - Discovery - Delta Label: 0.054315
+2025-03-24 09:15:03,734 - Discovery - Dataloader Updated! Select_sample Num: 4805
+2025-03-24 09:15:43,930 - Discovery - K-means used 0.51 s
+2025-03-24 09:17:20,498 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:17:20,499 - Discovery - delta_label: 1.000000
+2025-03-24 09:17:20,505 - Discovery - ***** Epoch: 5 *****
+2025-03-24 09:17:20,506 - Discovery - Training Loss: 7.570700
+2025-03-24 09:17:20,506 - Discovery - Delta Label: 0.059202
+2025-03-24 09:18:45,730 - Discovery - K-means used 0.52 s
+2025-03-24 09:20:20,488 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:20:20,489 - Discovery - delta_label: 1.000000
+2025-03-24 09:20:20,495 - Discovery - ***** Epoch: 6 *****
+2025-03-24 09:20:20,495 - Discovery - Training Loss: 7.630480
+2025-03-24 09:20:20,495 - Discovery - Delta Label: 0.064978
+2025-03-24 09:20:30,052 - Discovery - Dataloader Updated! Select_sample Num: 4644
+2025-03-24 09:21:09,251 - Discovery - K-means used 0.59 s
+2025-03-24 09:22:41,418 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:22:41,418 - Discovery - delta_label: 1.000000
+2025-03-24 09:22:41,427 - Discovery - ***** Epoch: 7 *****
+2025-03-24 09:22:41,427 - Discovery - Training Loss: 6.937530
+2025-03-24 09:22:41,428 - Discovery - Delta Label: 0.048873
+2025-03-24 09:22:51,699 - Discovery - Dataloader Updated! Select_sample Num: 4843
+2025-03-24 09:23:32,368 - Discovery - K-means used 0.48 s
+2025-03-24 09:25:01,497 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:25:01,497 - Discovery - delta_label: 1.000000
+2025-03-24 09:25:01,504 - Discovery - ***** Epoch: 8 *****
+2025-03-24 09:25:01,504 - Discovery - Training Loss: 6.725810
+2025-03-24 09:25:01,504 - Discovery - Delta Label: 0.050094
+2025-03-24 09:25:16,410 - Discovery - Dataloader Updated! Select_sample Num: 4822
+2025-03-24 09:25:57,051 - Discovery - K-means used 0.75 s
+2025-03-24 09:27:23,082 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:27:23,082 - Discovery - delta_label: 1.000000
+2025-03-24 09:27:23,088 - Discovery - ***** Epoch: 9 *****
+2025-03-24 09:27:23,089 - Discovery - Training Loss: 6.472260
+2025-03-24 09:27:23,089 - Discovery - Delta Label: 0.069088
+2025-03-24 09:27:33,367 - Discovery - Dataloader Updated! Select_sample Num: 4924
+2025-03-24 09:28:14,056 - Discovery - K-means used 0.39 s
+2025-03-24 09:29:36,044 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:29:36,044 - Discovery - delta_label: 1.000000
+2025-03-24 09:29:36,051 - Discovery - ***** Epoch: 10 *****
+2025-03-24 09:29:36,051 - Discovery - Training Loss: 6.163900
+2025-03-24 09:29:36,051 - Discovery - Delta Label: 0.037099
+2025-03-24 09:31:01,464 - Discovery - K-means used 0.55 s
+2025-03-24 09:32:14,994 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:32:14,995 - Discovery - delta_label: 1.000000
+2025-03-24 09:32:15,001 - Discovery - ***** Epoch: 11 *****
+2025-03-24 09:32:15,001 - Discovery - Training Loss: 6.343570
+2025-03-24 09:32:15,001 - Discovery - Delta Label: 0.044874
+2025-03-24 09:32:24,820 - Discovery - Dataloader Updated! Select_sample Num: 4859
+2025-03-24 09:33:05,327 - Discovery - K-means used 0.42 s
+2025-03-24 09:34:15,289 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:34:15,289 - Discovery - delta_label: 1.000000
+2025-03-24 09:34:15,296 - Discovery - ***** Epoch: 12 *****
+2025-03-24 09:34:15,296 - Discovery - Training Loss: 5.421120
+2025-03-24 09:34:15,296 - Discovery - Delta Label: 0.030101
+2025-03-24 09:34:31,224 - Discovery - Dataloader Updated! Select_sample Num: 5212
+2025-03-24 09:35:14,056 - Discovery - K-means used 0.39 s
+2025-03-24 09:36:21,759 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:36:21,759 - Discovery - delta_label: 1.000000
+2025-03-24 09:36:21,766 - Discovery - ***** Epoch: 13 *****
+2025-03-24 09:36:21,766 - Discovery - Training Loss: 5.233800
+2025-03-24 09:36:21,766 - Discovery - Delta Label: 0.036543
+2025-03-24 09:36:37,362 - Discovery - Dataloader Updated! Select_sample Num: 5042
+2025-03-24 09:37:19,169 - Discovery - K-means used 0.4 s
+2025-03-24 09:38:29,860 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:38:29,860 - Discovery - delta_label: 1.000000
+2025-03-24 09:38:29,869 - Discovery - ***** Epoch: 14 *****
+2025-03-24 09:38:29,870 - Discovery - Training Loss: 4.956370
+2025-03-24 09:38:29,870 - Discovery - Delta Label: 0.029657
+2025-03-24 09:38:40,606 - Discovery - Dataloader Updated! Select_sample Num: 5263
+2025-03-24 09:39:23,569 - Discovery - K-means used 0.34 s
+2025-03-24 09:40:27,235 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:40:27,236 - Discovery - delta_label: 1.000000
+2025-03-24 09:40:27,243 - Discovery - ***** Epoch: 15 *****
+2025-03-24 09:40:27,243 - Discovery - Training Loss: 4.681850
+2025-03-24 09:40:27,243 - Discovery - Delta Label: 0.024214
+2025-03-24 09:41:52,263 - Discovery - K-means used 0.34 s
+2025-03-24 09:42:49,497 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:42:49,497 - Discovery - delta_label: 1.000000
+2025-03-24 09:42:49,503 - Discovery - ***** Epoch: 16 *****
+2025-03-24 09:42:49,503 - Discovery - Training Loss: 5.101900
+2025-03-24 09:42:49,503 - Discovery - Delta Label: 0.030323
+2025-03-24 09:43:02,176 - Discovery - Dataloader Updated! Select_sample Num: 5478
+2025-03-24 09:43:46,625 - Discovery - K-means used 0.38 s
+2025-03-24 09:44:47,563 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:44:47,563 - Discovery - delta_label: 1.000000
+2025-03-24 09:44:47,570 - Discovery - ***** Epoch: 17 *****
+2025-03-24 09:44:47,570 - Discovery - Training Loss: 4.286770
+2025-03-24 09:44:47,570 - Discovery - Delta Label: 0.032767
+2025-03-24 09:44:58,450 - Discovery - Dataloader Updated! Select_sample Num: 5134
+2025-03-24 09:45:40,987 - Discovery - K-means used 0.44 s
+2025-03-24 09:46:41,891 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:46:41,891 - Discovery - delta_label: 1.000000
+2025-03-24 09:46:41,898 - Discovery - ***** Epoch: 18 *****
+2025-03-24 09:46:41,898 - Discovery - Training Loss: 4.057120
+2025-03-24 09:46:41,898 - Discovery - Delta Label: 0.030101
+2025-03-24 09:46:53,194 - Discovery - Dataloader Updated! Select_sample Num: 5243
+2025-03-24 09:47:36,349 - Discovery - K-means used 0.35 s
+2025-03-24 09:48:35,875 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:48:35,875 - Discovery - delta_label: 1.000000
+2025-03-24 09:48:35,881 - Discovery - ***** Epoch: 19 *****
+2025-03-24 09:48:35,882 - Discovery - Training Loss: 3.982530
+2025-03-24 09:48:35,882 - Discovery - Delta Label: 0.030990
+2025-03-24 09:48:47,008 - Discovery - Dataloader Updated! Select_sample Num: 5416
+2025-03-24 09:49:47,051 - Discovery - K-means used 0.33 s
+2025-03-24 09:50:47,786 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:50:47,786 - Discovery - delta_label: 1.000000
+2025-03-24 09:50:47,793 - Discovery - ***** Epoch: 20 *****
+2025-03-24 09:50:47,793 - Discovery - Training Loss: 3.749700
+2025-03-24 09:50:47,793 - Discovery - Delta Label: 0.033878
+2025-03-24 09:52:38,444 - Discovery - K-means used 0.34 s
+2025-03-24 09:53:36,754 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:53:36,754 - Discovery - delta_label: 1.000000
+2025-03-24 09:53:36,758 - Discovery - ***** Epoch: 21 *****
+2025-03-24 09:53:36,758 - Discovery - Training Loss: 4.224910
+2025-03-24 09:53:36,758 - Discovery - Delta Label: 0.023881
+2025-03-24 09:53:47,819 - Discovery - Dataloader Updated! Select_sample Num: 5263
+2025-03-24 09:54:47,056 - Discovery - K-means used 0.37 s
+2025-03-24 09:55:44,649 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:55:44,649 - Discovery - delta_label: 1.000000
+2025-03-24 09:55:44,659 - Discovery - ***** Epoch: 22 *****
+2025-03-24 09:55:44,659 - Discovery - Training Loss: 3.436240
+2025-03-24 09:55:44,659 - Discovery - Delta Label: 0.021326
+2025-03-24 09:55:56,845 - Discovery - Dataloader Updated! Select_sample Num: 5823
+2025-03-24 09:57:01,059 - Discovery - K-means used 0.35 s
+2025-03-24 09:57:57,599 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 09:57:57,600 - Discovery - delta_label: 1.000000
+2025-03-24 09:57:57,606 - Discovery - ***** Epoch: 23 *****
+2025-03-24 09:57:57,606 - Discovery - Training Loss: 3.549620
+2025-03-24 09:57:57,606 - Discovery - Delta Label: 0.024547
+2025-03-24 09:58:09,055 - Discovery - Dataloader Updated! Select_sample Num: 5528
+2025-03-24 09:59:10,704 - Discovery - K-means used 0.39 s
+2025-03-24 10:00:06,023 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 10:00:06,023 - Discovery - delta_label: 1.000000
+2025-03-24 10:00:06,029 - Discovery - ***** Epoch: 24 *****
+2025-03-24 10:00:06,030 - Discovery - Training Loss: 3.349330
+2025-03-24 10:00:06,030 - Discovery - Delta Label: 0.028657
+2025-03-24 10:00:23,093 - Discovery - Dataloader Updated! Select_sample Num: 5567
+2025-03-24 10:01:25,383 - Discovery - K-means used 0.35 s
+2025-03-24 10:02:24,955 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 10:02:24,955 - Discovery - delta_label: 1.000000
+2025-03-24 10:02:24,961 - Discovery - ***** Epoch: 25 *****
+2025-03-24 10:02:24,961 - Discovery - Training Loss: 3.286370
+2025-03-24 10:02:24,962 - Discovery - Delta Label: 0.024992
+2025-03-24 10:04:15,818 - Discovery - K-means used 0.3 s
+2025-03-24 10:05:12,408 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 10:05:12,408 - Discovery - delta_label: 1.000000
+2025-03-24 10:05:12,414 - Discovery - ***** Epoch: 26 *****
+2025-03-24 10:05:12,414 - Discovery - Training Loss: 3.787390
+2025-03-24 10:05:12,415 - Discovery - Delta Label: 0.014217
+2025-03-24 10:05:31,676 - Discovery - Dataloader Updated! Select_sample Num: 6157
+2025-03-24 10:06:39,293 - Discovery - K-means used 0.3 s
+2025-03-24 10:07:32,916 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 10:07:32,916 - Discovery - delta_label: 1.000000
+2025-03-24 10:07:32,923 - Discovery - ***** Epoch: 27 *****
+2025-03-24 10:07:32,923 - Discovery - Training Loss: 3.144070
+2025-03-24 10:07:32,923 - Discovery - Delta Label: 0.018438
+2025-03-24 10:07:44,461 - Discovery - Dataloader Updated! Select_sample Num: 5565
+2025-03-24 11:47:44,765 - Discovery - K-means used 0.43 s
+2025-03-24 11:48:42,151 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 11:48:42,151 - Discovery - delta_label: 1.000000
+2025-03-24 11:48:42,159 - Discovery - ***** Epoch: 28 *****
+2025-03-24 11:48:42,159 - Discovery - Training Loss: 3.076640
+2025-03-24 11:48:42,159 - Discovery - Delta Label: 0.019660
+2025-03-24 11:48:53,638 - Discovery - Dataloader Updated! Select_sample Num: 5636
+2025-03-24 11:49:55,274 - Discovery - K-means used 0.37 s
+2025-03-24 11:50:48,983 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 11:50:48,983 - Discovery - delta_label: 1.000000
+2025-03-24 11:50:48,990 - Discovery - ***** Epoch: 29 *****
+2025-03-24 11:50:48,990 - Discovery - Training Loss: 2.943800
+2025-03-24 11:50:48,990 - Discovery - Delta Label: 0.019882
+2025-03-24 11:51:06,423 - Discovery - Dataloader Updated! Select_sample Num: 5608
+2025-03-24 11:52:08,863 - Discovery - K-means used 0.31 s
+2025-03-24 11:53:09,544 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 11:53:09,544 - Discovery - delta_label: 1.000000
+2025-03-24 11:53:09,551 - Discovery - ***** Epoch: 30 *****
+2025-03-24 11:53:09,551 - Discovery - Training Loss: 2.959610
+2025-03-24 11:53:09,551 - Discovery - Delta Label: 0.018549
+2025-03-24 11:55:00,266 - Discovery - K-means used 0.32 s
+2025-03-24 11:55:53,537 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 11:55:53,537 - Discovery - delta_label: 1.000000
+2025-03-24 11:55:53,543 - Discovery - ***** Epoch: 31 *****
+2025-03-24 11:55:53,544 - Discovery - Training Loss: 3.475930
+2025-03-24 11:55:53,544 - Discovery - Delta Label: 0.011885
+2025-03-24 11:56:07,327 - Discovery - Dataloader Updated! Select_sample Num: 6635
+2025-03-24 11:57:18,916 - Discovery - K-means used 0.36 s
+2025-03-24 11:58:17,959 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 11:58:17,959 - Discovery - delta_label: 1.000000
+2025-03-24 11:58:17,968 - Discovery - ***** Epoch: 32 *****
+2025-03-24 11:58:17,968 - Discovery - Training Loss: 3.020060
+2025-03-24 11:58:17,968 - Discovery - Delta Label: 0.017328
+2025-03-24 11:58:29,675 - Discovery - Dataloader Updated! Select_sample Num: 5754
+2025-03-24 11:59:33,497 - Discovery - K-means used 0.34 s
+2025-03-24 12:00:26,019 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:00:26,020 - Discovery - delta_label: 1.000000
+2025-03-24 12:00:26,026 - Discovery - ***** Epoch: 33 *****
+2025-03-24 12:00:26,027 - Discovery - Training Loss: 2.882670
+2025-03-24 12:00:26,027 - Discovery - Delta Label: 0.018549
+2025-03-24 12:00:38,400 - Discovery - Dataloader Updated! Select_sample Num: 6094
+2025-03-24 12:01:45,229 - Discovery - K-means used 0.34 s
+2025-03-24 12:02:40,035 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:02:40,035 - Discovery - delta_label: 1.000000
+2025-03-24 12:02:40,039 - Discovery - ***** Epoch: 34 *****
+2025-03-24 12:02:40,039 - Discovery - Training Loss: 2.880150
+2025-03-24 12:02:40,039 - Discovery - Delta Label: 0.021882
+2025-03-24 12:02:52,648 - Discovery - Dataloader Updated! Select_sample Num: 6017
+2025-03-24 12:03:41,534 - Discovery - K-means used 0.34 s
+2025-03-24 12:04:33,240 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:04:33,241 - Discovery - delta_label: 1.000000
+2025-03-24 12:04:33,252 - Discovery - ***** Epoch: 35 *****
+2025-03-24 12:04:33,252 - Discovery - Training Loss: 2.834120
+2025-03-24 12:04:33,252 - Discovery - Delta Label: 0.021771
+2025-03-24 12:05:58,911 - Discovery - K-means used 0.3 s
+2025-03-24 12:06:50,661 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:06:50,662 - Discovery - delta_label: 1.000000
+2025-03-24 12:06:50,666 - Discovery - ***** Epoch: 36 *****
+2025-03-24 12:06:50,666 - Discovery - Training Loss: 3.260030
+2025-03-24 12:06:50,666 - Discovery - Delta Label: 0.010108
+2025-03-24 12:07:04,428 - Discovery - Dataloader Updated! Select_sample Num: 6593
+2025-03-24 12:07:55,910 - Discovery - K-means used 0.29 s
+2025-03-24 12:08:48,043 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:08:48,044 - Discovery - delta_label: 1.000000
+2025-03-24 12:08:48,047 - Discovery - ***** Epoch: 37 *****
+2025-03-24 12:08:48,047 - Discovery - Training Loss: 2.781720
+2025-03-24 12:08:48,047 - Discovery - Delta Label: 0.014217
+2025-03-24 12:09:00,860 - Discovery - Dataloader Updated! Select_sample Num: 6259
+2025-03-24 12:09:50,090 - Discovery - K-means used 0.3 s
+2025-03-24 12:10:41,947 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:10:41,947 - Discovery - delta_label: 1.000000
+2025-03-24 12:10:41,951 - Discovery - ***** Epoch: 38 *****
+2025-03-24 12:10:41,951 - Discovery - Training Loss: 2.790490
+2025-03-24 12:10:41,951 - Discovery - Delta Label: 0.018105
+2025-03-24 12:10:54,930 - Discovery - Dataloader Updated! Select_sample Num: 6288
+2025-03-24 12:11:44,626 - Discovery - K-means used 0.34 s
+2025-03-24 12:12:35,740 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:12:35,740 - Discovery - delta_label: 1.000000
+2025-03-24 12:12:35,746 - Discovery - ***** Epoch: 39 *****
+2025-03-24 12:12:35,746 - Discovery - Training Loss: 2.748660
+2025-03-24 12:12:35,746 - Discovery - Delta Label: 0.013995
+2025-03-24 12:12:48,089 - Discovery - Dataloader Updated! Select_sample Num: 6158
+2025-03-24 12:13:36,955 - Discovery - K-means used 0.3 s
+2025-03-24 12:14:27,844 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:14:27,844 - Discovery - delta_label: 1.000000
+2025-03-24 12:14:27,851 - Discovery - ***** Epoch: 40 *****
+2025-03-24 12:14:27,851 - Discovery - Training Loss: 2.686130
+2025-03-24 12:14:27,851 - Discovery - Delta Label: 0.011996
+2025-03-24 12:15:53,786 - Discovery - K-means used 0.31 s
+2025-03-24 12:16:46,965 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:16:46,965 - Discovery - delta_label: 1.000000
+2025-03-24 12:16:46,971 - Discovery - ***** Epoch: 41 *****
+2025-03-24 12:16:46,972 - Discovery - Training Loss: 3.073110
+2025-03-24 12:16:46,972 - Discovery - Delta Label: 0.008331
+2025-03-24 12:17:00,861 - Discovery - Dataloader Updated! Select_sample Num: 6819
+2025-03-24 12:17:53,828 - Discovery - K-means used 0.29 s
+2025-03-24 12:18:50,694 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:18:50,694 - Discovery - delta_label: 1.000000
+2025-03-24 12:18:50,698 - Discovery - ***** Epoch: 42 *****
+2025-03-24 12:18:50,698 - Discovery - Training Loss: 2.667430
+2025-03-24 12:18:50,698 - Discovery - Delta Label: 0.010330
+2025-03-24 12:19:10,623 - Discovery - Dataloader Updated! Select_sample Num: 6176
+2025-03-24 12:19:59,654 - Discovery - K-means used 0.38 s
+2025-03-24 12:21:00,133 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:21:00,134 - Discovery - delta_label: 1.000000
+2025-03-24 12:21:00,154 - Discovery - ***** Epoch: 43 *****
+2025-03-24 12:21:00,155 - Discovery - Training Loss: 2.649720
+2025-03-24 12:21:00,155 - Discovery - Delta Label: 0.011218
+2025-03-24 12:21:15,151 - Discovery - Dataloader Updated! Select_sample Num: 6442
+2025-03-24 12:22:06,639 - Discovery - K-means used 0.41 s
+2025-03-24 12:23:05,667 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:23:05,667 - Discovery - delta_label: 1.000000
+2025-03-24 12:23:05,673 - Discovery - ***** Epoch: 44 *****
+2025-03-24 12:23:05,674 - Discovery - Training Loss: 2.588470
+2025-03-24 12:23:05,674 - Discovery - Delta Label: 0.012218
+2025-03-24 12:23:19,619 - Discovery - Dataloader Updated! Select_sample Num: 6480
+2025-03-24 12:24:10,822 - Discovery - K-means used 0.33 s
+2025-03-24 12:25:05,007 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:25:05,007 - Discovery - delta_label: 1.000000
+2025-03-24 12:25:05,013 - Discovery - ***** Epoch: 45 *****
+2025-03-24 12:25:05,013 - Discovery - Training Loss: 2.643400
+2025-03-24 12:25:05,013 - Discovery - Delta Label: 0.010774
+2025-03-24 12:26:31,581 - Discovery - K-means used 0.31 s
+2025-03-24 12:27:26,381 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:27:26,382 - Discovery - delta_label: 1.000000
+2025-03-24 12:27:26,388 - Discovery - ***** Epoch: 46 *****
+2025-03-24 12:27:26,388 - Discovery - Training Loss: 2.947880
+2025-03-24 12:27:26,388 - Discovery - Delta Label: 0.006553
+2025-03-24 12:27:40,858 - Discovery - Dataloader Updated! Select_sample Num: 7026
+2025-03-24 12:28:35,595 - Discovery - K-means used 0.31 s
+2025-03-24 12:29:28,857 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:29:28,857 - Discovery - delta_label: 1.000000
+2025-03-24 12:29:28,865 - Discovery - ***** Epoch: 47 *****
+2025-03-24 12:29:28,866 - Discovery - Training Loss: 2.632640
+2025-03-24 12:29:28,866 - Discovery - Delta Label: 0.006109
+2025-03-24 12:29:44,051 - Discovery - Dataloader Updated! Select_sample Num: 7250
+2025-03-24 12:30:40,284 - Discovery - K-means used 0.31 s
+2025-03-24 12:31:32,121 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:31:32,121 - Discovery - delta_label: 1.000000
+2025-03-24 12:31:32,127 - Discovery - ***** Epoch: 48 *****
+2025-03-24 12:31:32,127 - Discovery - Training Loss: 2.701240
+2025-03-24 12:31:32,128 - Discovery - Delta Label: 0.009663
+2025-03-24 12:31:46,143 - Discovery - Dataloader Updated! Select_sample Num: 6766
+2025-03-24 12:32:39,299 - Discovery - K-means used 0.32 s
+2025-03-24 12:33:31,038 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:33:31,039 - Discovery - delta_label: 1.000000
+2025-03-24 12:33:31,043 - Discovery - ***** Epoch: 49 *****
+2025-03-24 12:33:31,043 - Discovery - Training Loss: 2.562070
+2025-03-24 12:33:31,043 - Discovery - Delta Label: 0.009552
+2025-03-24 12:33:45,213 - Discovery - Dataloader Updated! Select_sample Num: 6855
+2025-03-24 12:34:39,169 - Discovery - K-means used 0.34 s
+2025-03-24 12:35:30,976 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:35:30,976 - Discovery - delta_label: 1.000000
+2025-03-24 12:35:30,983 - Discovery - ***** Epoch: 50 *****
+2025-03-24 12:35:30,983 - Discovery - Training Loss: 2.600550
+2025-03-24 12:35:30,983 - Discovery - Delta Label: 0.010330
+2025-03-24 12:36:57,264 - Discovery - K-means used 0.3 s
+2025-03-24 12:37:49,032 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:37:49,032 - Discovery - delta_label: 1.000000
+2025-03-24 12:37:49,039 - Discovery - ***** Epoch: 51 *****
+2025-03-24 12:37:49,039 - Discovery - Training Loss: 2.811830
+2025-03-24 12:37:49,039 - Discovery - Delta Label: 0.006220
+2025-03-24 12:38:04,109 - Discovery - Dataloader Updated! Select_sample Num: 7212
+2025-03-24 12:39:00,316 - Discovery - K-means used 0.35 s
+2025-03-24 12:39:52,022 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:39:52,022 - Discovery - delta_label: 1.000000
+2025-03-24 12:39:52,025 - Discovery - ***** Epoch: 52 *****
+2025-03-24 12:39:52,025 - Discovery - Training Loss: 2.562640
+2025-03-24 12:39:52,025 - Discovery - Delta Label: 0.006109
+2025-03-24 12:40:06,181 - Discovery - Dataloader Updated! Select_sample Num: 6896
+2025-03-24 12:41:00,151 - Discovery - K-means used 0.29 s
+2025-03-24 12:41:51,533 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:41:51,533 - Discovery - delta_label: 1.000000
+2025-03-24 12:41:51,539 - Discovery - ***** Epoch: 53 *****
+2025-03-24 12:41:51,540 - Discovery - Training Loss: 2.552890
+2025-03-24 12:41:51,540 - Discovery - Delta Label: 0.007664
+2025-03-24 12:42:06,036 - Discovery - Dataloader Updated! Select_sample Num: 7056
+2025-03-24 12:43:01,051 - Discovery - K-means used 0.34 s
+2025-03-24 12:43:51,441 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:43:51,441 - Discovery - delta_label: 1.000000
+2025-03-24 12:43:51,446 - Discovery - ***** Epoch: 54 *****
+2025-03-24 12:43:51,447 - Discovery - Training Loss: 2.508170
+2025-03-24 12:43:51,447 - Discovery - Delta Label: 0.008775
+2025-03-24 12:44:06,275 - Discovery - Dataloader Updated! Select_sample Num: 7070
+2025-03-24 12:45:01,361 - Discovery - K-means used 0.36 s
+2025-03-24 12:45:56,409 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:45:56,410 - Discovery - delta_label: 1.000000
+2025-03-24 12:45:56,419 - Discovery - ***** Epoch: 55 *****
+2025-03-24 12:45:56,419 - Discovery - Training Loss: 2.507410
+2025-03-24 12:45:56,419 - Discovery - Delta Label: 0.007553
+2025-03-24 12:47:22,935 - Discovery - K-means used 0.35 s
+2025-03-24 12:48:14,737 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:48:14,737 - Discovery - delta_label: 1.000000
+2025-03-24 12:48:14,741 - Discovery - ***** Epoch: 56 *****
+2025-03-24 12:48:14,741 - Discovery - Training Loss: 2.712230
+2025-03-24 12:48:14,741 - Discovery - Delta Label: 0.004554
+2025-03-24 12:48:30,822 - Discovery - Dataloader Updated! Select_sample Num: 7809
+2025-03-24 12:49:30,666 - Discovery - K-means used 0.29 s
+2025-03-24 12:49:30,854 - Discovery - ***** Epoch: 57 *****
+2025-03-24 12:49:30,854 - Discovery - Training Loss: 2.586950
+2025-03-24 12:49:30,854 - Discovery - Delta Label: 0.004110
+2025-03-24 12:49:46,791 - Discovery - Dataloader Updated! Select_sample Num: 7550
+2025-03-24 12:50:47,525 - Discovery - K-means used 0.3 s
+2025-03-24 12:50:47,727 - Discovery - ***** Epoch: 58 *****
+2025-03-24 12:50:47,727 - Discovery - Training Loss: 2.540380
+2025-03-24 12:50:47,727 - Discovery - Delta Label: 0.006776
+2025-03-24 12:51:03,581 - Discovery - Dataloader Updated! Select_sample Num: 7495
+2025-03-24 12:52:04,193 - Discovery - K-means used 0.29 s
+2025-03-24 12:52:54,432 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:52:54,432 - Discovery - delta_label: 1.000000
+2025-03-24 12:52:54,439 - Discovery - ***** Epoch: 59 *****
+2025-03-24 12:52:54,439 - Discovery - Training Loss: 2.496990
+2025-03-24 12:52:54,439 - Discovery - Delta Label: 0.007220
+2025-03-24 12:53:09,004 - Discovery - Dataloader Updated! Select_sample Num: 7042
+2025-03-24 12:54:04,093 - Discovery - K-means used 0.29 s
+2025-03-24 12:54:52,062 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:54:52,063 - Discovery - delta_label: 1.000000
+2025-03-24 12:54:52,066 - Discovery - ***** Epoch: 60 *****
+2025-03-24 12:54:52,066 - Discovery - Training Loss: 2.451910
+2025-03-24 12:54:52,066 - Discovery - Delta Label: 0.005109
+2025-03-24 12:56:18,005 - Discovery - K-means used 0.28 s
+2025-03-24 12:57:10,080 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 12:57:10,081 - Discovery - delta_label: 1.000000
+2025-03-24 12:57:10,084 - Discovery - ***** Epoch: 61 *****
+2025-03-24 12:57:10,084 - Discovery - Training Loss: 2.653940
+2025-03-24 12:57:10,084 - Discovery - Delta Label: 0.002888
+2025-03-24 12:57:26,799 - Discovery - Dataloader Updated! Select_sample Num: 8020
+2025-03-24 12:58:28,192 - Discovery - K-means used 0.29 s
+2025-03-24 12:58:28,379 - Discovery - ***** Epoch: 62 *****
+2025-03-24 12:58:28,379 - Discovery - Training Loss: 2.524020
+2025-03-24 12:58:28,379 - Discovery - Delta Label: 0.004554
+2025-03-24 12:58:43,935 - Discovery - Dataloader Updated! Select_sample Num: 7615
+2025-03-24 12:59:45,020 - Discovery - K-means used 0.3 s
+2025-03-24 12:59:45,204 - Discovery - ***** Epoch: 63 *****
+2025-03-24 12:59:45,204 - Discovery - Training Loss: 2.508200
+2025-03-24 12:59:45,204 - Discovery - Delta Label: 0.006442
+2025-03-24 12:59:59,952 - Discovery - Dataloader Updated! Select_sample Num: 7149
+2025-03-24 13:00:58,460 - Discovery - K-means used 0.31 s
+2025-03-24 13:01:50,110 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 13:01:50,110 - Discovery - delta_label: 1.000000
+2025-03-24 13:01:50,117 - Discovery - ***** Epoch: 64 *****
+2025-03-24 13:01:50,117 - Discovery - Training Loss: 2.423940
+2025-03-24 13:01:50,117 - Discovery - Delta Label: 0.005443
+2025-03-24 13:02:05,155 - Discovery - Dataloader Updated! Select_sample Num: 7351
+2025-03-24 13:03:01,778 - Discovery - K-means used 0.3 s
+2025-03-24 13:03:54,319 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 13:03:54,320 - Discovery - delta_label: 1.000000
+2025-03-24 13:03:54,324 - Discovery - ***** Epoch: 65 *****
+2025-03-24 13:03:54,324 - Discovery - Training Loss: 2.440350
+2025-03-24 13:03:54,324 - Discovery - Delta Label: 0.005220
+2025-03-24 13:05:21,548 - Discovery - K-means used 0.28 s
+2025-03-24 13:06:13,536 - Discovery - Pseudo_labels Updated! Redistributed_Samples Num: 10
+2025-03-24 13:06:13,536 - Discovery - delta_label: 1.000000
+2025-03-24 13:06:13,548 - Discovery - ***** Epoch: 66 *****
+2025-03-24 13:06:13,548 - Discovery - Training Loss: 2.546620
+2025-03-24 13:06:13,548 - Discovery - Delta Label: 0.003110
+2025-03-24 13:06:30,674 - Discovery - Dataloader Updated! Select_sample Num: 8148
+2025-03-24 13:07:32,681 - Discovery - K-means used 0.28 s
+2025-03-24 13:07:32,871 - Discovery - ***** Epoch: 67 *****
+2025-03-24 13:07:32,871 - Discovery - Training Loss: 2.467260
+2025-03-24 13:07:32,872 - Discovery - Delta Label: 0.003888
+2025-03-24 13:07:49,135 - Discovery - Dataloader Updated! Select_sample Num: 7525
+2025-03-24 13:08:49,581 - Discovery - K-means used 0.28 s
+2025-03-24 13:08:49,761 - Discovery - ***** Epoch: 68 *****
+2025-03-24 13:08:49,761 - Discovery - Training Loss: 2.406290
+2025-03-24 13:08:49,761 - Discovery - Delta Label: 0.003999
+2025-03-24 13:09:06,521 - Discovery - Dataloader Updated! Select_sample Num: 7886
+2025-03-24 13:10:09,208 - Discovery - K-means used 0.31 s
+2025-03-24 13:10:09,390 - Discovery - ***** Epoch: 69 *****
+2025-03-24 13:10:09,390 - Discovery - Training Loss: 2.463450
+2025-03-24 13:10:09,390 - Discovery - Delta Label: 0.003777
+2025-03-24 13:10:25,719 - Discovery - Dataloader Updated! Select_sample Num: 7778
+2025-03-24 13:11:27,964 - Discovery - K-means used 0.29 s
+2025-03-24 13:11:28,148 - Discovery - ***** Epoch: 70 *****
+2025-03-24 13:11:28,148 - Discovery - Training Loss: 2.372230
+2025-03-24 13:11:28,148 - Discovery - Delta Label: 0.003665

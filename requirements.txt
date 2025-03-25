@@ -1,0 +1,16 @@
+easydict==1.9
+faiss==1.7.2
+faiss_gpu==1.7.2
+keras==2.11.0
+matplotlib==3.5.2
+numpy==1.24.4
+pandas==1.4.3
+scikit_learn==0.24.1
+scipy==1.8.1
+seaborn==0.13.2
+sentence_transformers==2.2.2
+tensorflow==2.11.0
+torch==1.8.1+cu111
+tqdm==4.66.2
+tqdm==4.64.0
+transformers==4.32.1
