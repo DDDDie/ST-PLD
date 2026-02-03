@@ -1,5 +1,5 @@
 # ST-PLD
-The code of paper "Discovering New Intents via Spatio-Temporal Pseudo-Label Denoising"
+The code of paper 《Discovering New Intents via Spatio-Temporal Pseudo-Label Denoising》（IPM 2026）
 
 ## Get Started
 ### Requirement
@@ -30,3 +30,8 @@ You can change the parameters in the script. The selected parameters are as foll
 dataset: banking｜clinc | stackoverflow
 known_class_ratio: 0.25 | 0.5 | 0.75
 ```
+
+### Thanks
+Some code and instructions reference the following repositories:
+- [DeepAligned-Clustering](https://github.com/thuiar/DeepAligned-Clustering)
+- [TEXTOIR](https://github.com/thuiar/TEXTOIR)
